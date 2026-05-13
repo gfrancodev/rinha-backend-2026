@@ -1,6 +1,12 @@
 services:
   lb:
     image: nginx:1.30.0-alpine
+    platform: linux/amd64
+    deploy:
+      resources:
+        limits:
+          cpus: "0.05"
+          memory: 32M
     ports:
       - "9999:9999"
     volumes:
@@ -14,6 +20,12 @@ services:
 
   api1:
     build: .
+    platform: linux/amd64
+    deploy:
+      resources:
+        limits:
+          cpus: "0.425"
+          memory: 135M
     environment:
       - REFERENCES_BIN=/opt/references.bin
       - DATA_PATH=/data
@@ -27,6 +39,12 @@ services:
 
   api2:
     build: .
+    platform: linux/amd64
+    deploy:
+      resources:
+        limits:
+          cpus: "0.425"
+          memory: 135M
     environment:
       - REFERENCES_BIN=/opt/references.bin
       - DATA_PATH=/data
@@ -42,6 +60,12 @@ services:
 
   data-loader:
     image: alpine:3.23
+    platform: linux/amd64
+    deploy:
+      resources:
+        limits:
+          cpus: "0.10"
+          memory: 48M
     volumes:
       - data:/data
     restart: "no"
