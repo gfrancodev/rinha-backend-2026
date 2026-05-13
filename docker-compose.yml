@@ -6,7 +6,7 @@ services:
       resources:
         limits:
           cpus: "0.05"
-          memory: 32M
+          memory: 28M
     ports:
       - "9999:9999"
     volumes:
@@ -25,7 +25,7 @@ services:
       resources:
         limits:
           cpus: "0.425"
-          memory: 135M
+          memory: 145M
     environment:
       - REFERENCES_BIN=/opt/references.bin
       - DATA_PATH=/data
@@ -50,7 +50,7 @@ services:
       resources:
         limits:
           cpus: "0.425"
-          memory: 135M
+          memory: 145M
     environment:
       - REFERENCES_BIN=/opt/references.bin
       - DATA_PATH=/data
@@ -77,7 +77,7 @@ services:
       resources:
         limits:
           cpus: "0.10"
-          memory: 48M
+          memory: 32M
     volumes:
       - data:/data
     restart: "no"
